@@ -2,18 +2,111 @@
   <div id="app">
     <el-container class="home-container">
       <el-header>
-      <div>
-      <img src="https://z3.ax1x.com/2021/06/21/REnCng.png">
-      <p>全国第六届大学生艺术展演活动</p>
-      </div>
-      <ul>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li></ul>
+        <div>
+          <img src="https://z3.ax1x.com/2021/06/21/REnCng.png" />
+          <p>全国第六届大学生艺术展演活动</p>
+        </div>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
       </el-header>
-      <el-container >
-        <el-aside width="200px">Aside</el-aside>
+      <el-container>
+        <el-aside width="200px">
+          <el-col :span="24">
+            <el-menu
+              default-active="2"
+              class="el-menu-vertical-demo"
+              background-color="#5a3ac2"
+              text-color="#fff"
+              active-text-color="#ffd04b"
+              unique-opened="true"
+            >
+              <el-menu-item index="1">
+                <i class="el-icon-menu"></i>
+                <span slot="title">首页</span>
+              </el-menu-item>
+              <!-- 网上报名 -->
+              <div class="line">
+                <p>—— 网上报名 ——</p>
+              </div>
+              <el-submenu index="2">
+                <template slot="title">
+                  <i class="el-icon-location"></i>
+                  <span>艺术表演类</span>
+                </template>
+                <el-menu-item index="2-1">声乐作品报名</el-menu-item>
+                <el-menu-item index="2-2">器乐作品报名</el-menu-item>
+                <el-menu-item index="2-3">舞蹈作品报名</el-menu-item>
+                <el-menu-item index="2-4">戏剧作品报名</el-menu-item>
+                <el-menu-item index="2-5">朗诵作品报名</el-menu-item>
+              </el-submenu>
+
+              <el-submenu index="3">
+                <template slot="title">
+                  <i class="el-icon-location"></i>
+                  <span>学生艺术作品类</span>
+                </template>
+                <el-menu-item index="3-1">绘画作品报名</el-menu-item>
+                <el-menu-item index="3-2">书法、篆刻作品报名</el-menu-item>
+                <el-menu-item index="3-3">摄影作品报名</el-menu-item>
+                <el-menu-item index="3-4">设计作品报名</el-menu-item>
+                <el-menu-item index="3-5">微电影作品报名</el-menu-item>
+              </el-submenu>
+
+              <el-submenu index="4">
+                <template slot="title">
+                  <i class="el-icon-location"></i>
+                  <span>高校校长作品类</span>
+                </template>
+                <el-menu-item index="4-1">绘画作品报名</el-menu-item>
+                <el-menu-item index="4-2">书法、篆刻作品报名</el-menu-item>
+                <el-menu-item index="4-3">摄影作品报名</el-menu-item>
+              </el-submenu>
+
+              <el-menu-item index="5">
+                <i class="el-icon-menu"></i>
+                <span slot="title">艺术实践工作坊</span>
+              </el-menu-item>
+
+              <el-menu-item index="6">
+                <i class="el-icon-menu"></i>
+                <span slot="title">优秀案例报名</span>
+              </el-menu-item>
+
+              <div class="line">
+                <p>—— 报名信息 ——</p>
+              </div>
+
+              <el-menu-item index="7">
+                <i class="el-icon-menu"></i>
+                <span slot="title">艺术表演类统计</span>
+              </el-menu-item>
+
+              <el-menu-item index="8">
+                <i class="el-icon-menu"></i>
+                <span slot="title">学生艺术作品统计</span>
+              </el-menu-item>
+
+              <el-menu-item index="9">
+                <i class="el-icon-menu"></i>
+                <span slot="title">高校校长作品统计</span>
+              </el-menu-item>
+
+              <el-menu-item index="10">
+                <i class="el-icon-menu"></i>
+                <span slot="title">艺术实践工作坊统计</span>
+              </el-menu-item>
+
+              <el-menu-item index="11">
+                <i class="el-icon-menu"></i>
+                <span slot="title">优秀案例统计</span>
+              </el-menu-item>
+            </el-menu>
+          </el-col>
+        </el-aside>
         <el-main>Main</el-main>
       </el-container>
     </el-container>
@@ -25,29 +118,52 @@ export default {};
 </script>
 
 <style scoped>
-.home-container{
-height: 100%;
+.home-container {
+  height: 100%;
 }
 .el-header {
   background-color: #ffffff;
-
 }
-.el-header img{
-width: 50px;
-height: 50px;
+.el-header img {
+  width: 50px;
+  height: 50px;
 }
-.el-header p{
-color:#5a3ac2 ;
+.el-header p {
+  color: #5a3ac2;
 }
-.el-header div{
-display: flex;
-justify-content: left;
-align-items: center;
+.el-header div {
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
 .el-aside {
   background-color: #5a3ac2;
 }
 .el-main {
   background-color: #c0c4cc;
+}
+
+.el-menu {
+  border-right: 0px;
+}
+
+.line {
+  width: 90%;
+  margin: 0 auto;
+  height: 35px;
+  line-height: 35px;
+  cursor: pointer;
+  background-color: #d1c7f3;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.line p {
+  text-align: center;
+  font-size: 17px;
+  font-weight: 700;
+  opacity: 0.5;
+  color: #4219c7;
+  font-family: SimHei Regular, SimHei Regular-Regular;
 }
 </style>

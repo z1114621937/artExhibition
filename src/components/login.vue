@@ -41,7 +41,7 @@
               ></el-input>
             </el-form-item>
           </el-form>
-          <el-button type="primary" round >登录</el-button>
+          <el-button type="primary" round @click="login()">登录</el-button>
         </div>
       </div>
     </div>
@@ -67,7 +67,11 @@ export default {
       },
     };
   },
-  methods: {},
+  methods: {
+    login() {
+      this.$router.replace('/home')
+    }
+  },
 };
 </script>
 <!-- scped表示的这个样式不会与其他的发生冲突 -->
@@ -76,7 +80,7 @@ export default {
   font-size: 29px;
   background-image: linear-gradient(to right, #8741ff, #84a8f7);
   -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
+  background-clip: text;
 }
 .fonts{
 margin-top: 20px;
