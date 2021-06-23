@@ -671,7 +671,7 @@ export default {
 }
 .homeContent {
   width: 97%;
-  margin: 0 auto 20px;
+  margin: 0 auto 20px;      
   background-color: #fff;
   height: 95%;
   border-radius: 10px;
@@ -835,7 +835,7 @@ export default {
 
 .middleWarning a {
   color: #409eff;
-  margin: 0 3px;
+  margin: 0 6px;
   cursor: pointer;
 }
 
