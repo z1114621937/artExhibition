@@ -79,7 +79,7 @@
               <p>—— 报名信息 ——</p>
             </div>
 
-            <el-menu-item index="7">
+            <el-menu-item index="7"  @click="artPlaystatistics()">
               <i class="el-icon-menu"></i>
               <span slot="title">艺术表演类统计</span>
             </el-menu-item>
@@ -122,6 +122,9 @@ export default {
     vocalistEnroll() {
       this.$router.push("/vocalistenroll");
     },
+    artPlaystatistics() {
+      this.$router.push('/artPlaystatistics')
+    }
   },
 };
 </script>
