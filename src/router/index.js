@@ -18,7 +18,8 @@ const routes = [
   {
     path: '/home', component: home, children: [
       { path: '/', redirect: '/vocalistenroll' },
-      { path: '/vocalistenroll', component: solve => require(['../components/artenroll/vocalistEnroll.vue'], solve) }
+      { path: '/vocalistenroll', component: solve => require(['../components/artenroll/vocalistEnroll.vue'], solve) },
+      { path: '/artPlaystatistics', component: solve => require(['../components/statistics/artPlayStatistics.vue'], solve)}
     ]
   },
 ]
