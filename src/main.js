@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import 'default-passive-events'
 // 手动配置element ui
 import ElementUI from 'element-ui'
 import { Message } from 'element-ui'

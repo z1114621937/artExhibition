@@ -6,12 +6,20 @@ Vue.use(VueRouter)
 
 const routes = [
   { path: '/', redirect: '/login' },
-  { path: '/login', component: login },
-  { path: '/home', component: home },
+  {
+    path: '/login',
+    component: login,
+  },
+  {
+    path: '/home', component: home, children: [
+      { path: '/', redirect: '/vocalistenroll' },
+      { path: '/vocalistenroll', component: solve => require(['../components/enroll/vocalistEnroll.vue'], solve) }
+    ]
+  },
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   base: process.env.BASE_URL,
   routes
 })
