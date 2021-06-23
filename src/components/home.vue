@@ -110,6 +110,7 @@
         <!-- 顶部窗口区 -->
         <div class="windows" style="height:40px;"></div>
         <router-view class="main-height"></router-view>
+        <div class="copyright">@copyright 第六届全国大学生艺术展演</div>
       </el-main>
     </el-container>
   </el-container>
@@ -195,6 +196,17 @@ ul li{
   background-color: #fff;
   box-shadow: 0 0px 5px #898989;
   min-width: 1000px;
+}
+
+.copyright {
+  width: 100%;
+  background-color: #fff;
+  min-width: 1000px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 15px;
+  color: #c9c4c4;
 }
 
 header {
