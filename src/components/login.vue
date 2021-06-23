@@ -122,13 +122,15 @@ color:#6513f3 ;
   align-items: center;
 }
 .main {
-  height: 45%;
-  width: 45%;
+  height: 400px;
+  width: 750px;
   background-color: white;
   border-radius: 25px;
   display: flex;
   justify-content: space-between;
   box-shadow:3px 3px #8741ff;
+  margin-left: 6px;
+  margin-right: 6px;
 }
 .img {
   width: 30%;
