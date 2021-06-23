@@ -495,8 +495,7 @@ export default {
         numberPeople: "",
         desc: "",
         accompany: "老师",
-        video:
-          "https://isekko-1306311182.cos.ap-nanjing.myqcloud.com/art/UVoDuw5ONF4iBuTII8douy8fwcqgzxMu6GJaEk1A.mp4",
+        video:"",
       },
       tableData1: [
         {
