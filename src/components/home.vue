@@ -140,6 +140,7 @@ export default {
        this.$router.push("/drawingEnroll");
     },
     handwritingEnroll(){
+      
        this.$router.push("/handwritingEnroll");
     },
     shootEnroll(){
