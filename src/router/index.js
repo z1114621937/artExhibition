@@ -26,8 +26,10 @@ const routes = [
             { path: '/shootEnroll', component: solve => require(['../components/studentartenroll/shootEnroll.vue'], solve) },
             { path: '/deviseEnroll', component: solve => require(['../components/studentartenroll/deviseEnroll.vue'], solve) },
             { path: '/movieEnroll', component: solve => require(['../components/studentartenroll/movieEnroll.vue'], solve) },
+          { path: '/artPlaystatistics', component: solve => require(['../components/statistics/artPlayStatistics.vue'], solve)},
         ]
     },
+
 ]
 
 const router = new VueRouter({
