@@ -3,7 +3,7 @@
     <div class="nav">
       <el-breadcrumb separator-class="el-icon-arrow-right" style="font-size:16px">
         <el-breadcrumb-item>首页</el-breadcrumb-item>
-        <el-breadcrumb-item>艺术表演类统计</el-breadcrumb-item>
+        <el-breadcrumb-item>学生艺术作品统计</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
     <div class="home">
@@ -16,11 +16,11 @@
         </div>
         <div class="inputSelect">
           <el-select v-model="select" placeholder="请选择">
-            <el-option label="声乐作品" value="声乐作品"></el-option>
-            <el-option label="器乐作品" value="器乐作品"></el-option>
-            <el-option label="舞蹈作品" value="舞蹈作品"></el-option>
-            <el-option label="戏剧作品" value="戏剧作品"></el-option>
-            <el-option label="朗诵作品" value="朗诵作品"></el-option>
+            <el-option label="绘画作品" value="绘画作品"></el-option>
+            <el-option label="书法篆刻作品" value="书法篆刻作品"></el-option>
+            <el-option label="摄影作品" value="摄影作品"></el-option>
+            <el-option label="设计作品" value="设计作品"></el-option>
+            <el-option label="微电影作品" value="微电影作品"></el-option>
           </el-select>
         </div>
         <div class="examine">
@@ -54,8 +54,7 @@
             <el-table-column prop="username" label="联系人" width="200" show-overflow-tooltip></el-table-column>
             <el-table-column prop="phone" label="联系电话" width="180" show-overflow-tooltip></el-table-column>
             <el-table-column prop="address" label="联系地址" width="180" show-overflow-tooltip></el-table-column>
-            <el-table-column prop="type" label="类型" width="250" show-overflow-tooltip></el-table-column>
-            <el-table-column prop="member" label="成员" width="180" show-overflow-tooltip></el-table-column>
+            <el-table-column prop="author" label="作者" width="180" show-overflow-tooltip></el-table-column>
             <el-table-column prop="status" label="状态" width="250" show-overflow-tooltip></el-table-column>
             <el-table-column label="操作" width="300">
               <template slot-scope="scope">
@@ -93,7 +92,7 @@ export default {
           username: "甘相东",
           phone: "13550993955",
           address: "甘哥",
-          member:"无",
+          author:"无",
           type:"无",
           status: 2,
         },
