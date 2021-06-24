@@ -26,12 +26,14 @@ const routes = [
             { path: '/shootEnroll', component: solve => require(['../components/studentartenroll/shootEnroll.vue'], solve) },
             { path: '/deviseEnroll', component: solve => require(['../components/studentartenroll/deviseEnroll.vue'], solve) },
             { path: '/movieEnroll', component: solve => require(['../components/studentartenroll/movieEnroll.vue'], solve) },
-          { path: '/artPlaystatistics', component: solve => require(['../components/statistics/artPlayStatistics.vue'], solve)},
+            { path: '/artPlaystatistics', component: solve => require(['../components/statistics/artPlayStatistics.vue'], solve) },
+            { path: '/studentStatistics', component: solve => require(['../components/statistics/studentStatistics.vue'], solve) },
+            { path: '/collegeStatistics', component: solve => require(['../components/statistics/collegeStatistics.vue'], solve) },
+            { path: '/artWorkStatistics', component: solve => require(['../components/statistics/artWorkStatistics.vue'], solve) },
+            { path: '/excellentStatistics', component: solve => require(['../components/statistics/excellentStatistics.vue'], solve) },
         ]
     },
-
 ]
-
 const router = new VueRouter({
     mode: 'hash',
     base: process.env.BASE_URL,

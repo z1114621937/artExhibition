@@ -351,7 +351,6 @@ export default {
         
         art: "",
         teacher:"",
-        perform: "",
         artlong:"",
         username: "",
         value:"",
@@ -362,7 +361,6 @@ export default {
         address: "",
         time:"",
         wide:"",
-        // numberPeople: "",
         desc: "",
         accompany: "老师",
         video:"",

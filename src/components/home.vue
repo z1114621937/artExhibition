@@ -84,22 +84,22 @@
               <span slot="title">艺术表演类统计</span>
             </el-menu-item>
 
-            <el-menu-item index="8">
+            <el-menu-item index="8" @click="studentStatistics()">
               <i class="el-icon-menu"></i>
               <span slot="title">学生艺术作品统计</span>
             </el-menu-item>
 
-            <el-menu-item index="9">
+            <el-menu-item index="9" @click="collegeStatistics()">
               <i class="el-icon-menu"></i>
               <span slot="title">高校校长作品统计</span>
             </el-menu-item>
 
-            <el-menu-item index="10">
+            <el-menu-item index="10" @click="artWorkStatistics()">
               <i class="el-icon-menu"></i>
               <span slot="title">艺术实践工作坊统计</span>
             </el-menu-item>
 
-            <el-menu-item index="11">
+            <el-menu-item index="11" @click=" excellentStatistics()">
               <i class="el-icon-menu"></i>
               <span slot="title">优秀案例统计</span>
             </el-menu-item>
@@ -122,6 +122,7 @@ export default {
     vocalistEnroll() {
       this.$router.push("/vocalistenroll");
     },
+
     instrumentalEnroll(){
        this.$router.push("/instrumentalEnroll");
     },
@@ -154,8 +155,19 @@ export default {
     },
     artPlaystatistics() {
       this.$router.push('/artPlaystatistics')
+    },
+    studentStatistics() {
+      this.$router.push('/studentStatistics')
+    },
+     collegeStatistics() {
+      this.$router.push('/collegeStatistics')
+    },
+    excellentStatistics() {
+      this.$router.push('/excellentStatistics')
+    },
+    artWorkStatistics() {
+      this.$router.push('/artWorkStatistics')
     }
-
   },
 };
 </script>

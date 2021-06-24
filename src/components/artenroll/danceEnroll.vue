@@ -395,7 +395,6 @@ export default {
         group: "甲组（非专业组）",
         works:'true',
         address: "",
-        // numberPeople: "",
         desc: "",
         accompany: "老师",
         video:"",
