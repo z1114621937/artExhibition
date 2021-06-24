@@ -37,7 +37,7 @@
                 <span>艺术表演类</span>
               </template>
               <el-menu-item index="2-1" @click="vocalistEnroll()">声乐作品报名</el-menu-item>
-              <el-menu-item index="2-2">器乐作品报名</el-menu-item>
+              <el-menu-item index="2-2" >器乐作品报名</el-menu-item>
               <el-menu-item index="2-3">舞蹈作品报名</el-menu-item>
               <el-menu-item index="2-4">戏剧作品报名</el-menu-item>
               <el-menu-item index="2-5">朗诵作品报名</el-menu-item>
@@ -60,19 +60,19 @@
                 <i class="el-icon-location"></i>
                 <span>高校校长作品类</span>
               </template>
-              <el-menu-item index="4-1">绘画作品报名</el-menu-item>
-              <el-menu-item index="4-2">书法、篆刻作品报名</el-menu-item>
-              <el-menu-item index="4-3">摄影作品报名</el-menu-item>
+              <el-menu-item index="4-1" @click="collegeDrawingEnroll()">绘画作品报名</el-menu-item>
+              <el-menu-item index="4-2" @click="collegeHandweitingEnrol()">书法、篆刻作品报名</el-menu-item>
+              <el-menu-item index="4-3" @click="collegeShootEnrol()">摄影作品报名</el-menu-item>
             </el-submenu>
 
             <el-menu-item index="5">
               <i class="el-icon-menu"></i>
-              <span slot="title">艺术实践工作坊</span>
+              <span slot="title" @click="artWorkEnroll()">艺术实践工作坊</span>
             </el-menu-item>
 
             <el-menu-item index="6">
               <i class="el-icon-menu"></i>
-              <span slot="title">优秀案例报名</span>
+              <span slot="title" @click="excellentEnroll()">优秀案例报名</span>
             </el-menu-item>
 
             <div class="line">
@@ -122,6 +122,21 @@ export default {
     vocalistEnroll() {
       this.$router.push("/vocalistenroll");
     },
+    collegeDrawingEnroll(){
+      this.$router.push("/collegeDrawingEnroll");
+    },
+    collegeShootEnrol(){
+       this.$router.push("/collegeShootEnrol");
+    },
+    collegeHandweitingEnrol(){
+      this.$router.push("/collegeHandweitingEnrol");
+    },
+    artWorkEnroll(){
+ this.$router.push("/artWorkEnrol");
+    },
+    excellentEnroll(){
+ this.$router.push("/excellentEnrol");
+    }
   },
 };
 </script>

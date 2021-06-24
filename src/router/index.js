@@ -18,8 +18,13 @@ const routes = [
   {
     path: '/home', component: home, children: [
       { path: '/', redirect: '/vocalistenroll' },
-      { path: '/vocalistenroll', component: solve => require(['../components/artenroll/vocalistEnroll.vue'], solve) }
-    ]
+      { path: '/vocalistenroll', component: solve => require(['../components/artenroll/vocalistEnroll.vue'], solve) },
+      { path: '/collegeDrawingEnroll', component: solve => require(['../components/collegeenroll/collegeDrawingEnroll.vue'], solve) },
+      { path: '/collegeHandweitingEnrol', component: solve => require(['../components/collegeenroll/collegeHandweitingEnrol.vue'], solve) },
+      { path: '/collegeShootEnrol', component: solve => require(['../components/collegeenroll/collegeShootEnrol.vue'], solve) },
+      { path: '/artWorkEnrol', component: solve => require(['../components/artworkenroll/artWorkEnrol.vue'], solve) },
+      { path: '/excellentEnrol', component: solve => require(['../components/excellentenroll/excellentEnrol.vue'], solve) },
+    ],
   },
 ]
 
