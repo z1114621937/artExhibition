@@ -37,10 +37,10 @@
                 <span>艺术表演类</span>
               </template>
               <el-menu-item index="2-1" @click="vocalistEnroll()">声乐作品报名</el-menu-item>
-              <el-menu-item index="2-2">器乐作品报名</el-menu-item>
-              <el-menu-item index="2-3">舞蹈作品报名</el-menu-item>
-              <el-menu-item index="2-4">戏剧作品报名</el-menu-item>
-              <el-menu-item index="2-5">朗诵作品报名</el-menu-item>
+              <el-menu-item index="2-2" @click="instrumentalEnroll()">器乐作品报名</el-menu-item>
+              <el-menu-item index="2-3" @click="danceEnroll()">舞蹈作品报名</el-menu-item>
+              <el-menu-item index="2-4" @click="playEnroll()">戏剧作品报名</el-menu-item>
+              <el-menu-item index="2-5" @click="recitationEnroll()">朗诵作品报名</el-menu-item>
             </el-submenu>
 
             <el-submenu index="3">
@@ -48,11 +48,11 @@
                 <i class="el-icon-location"></i>
                 <span>学生艺术作品类</span>
               </template>
-              <el-menu-item index="3-1">绘画作品报名</el-menu-item>
-              <el-menu-item index="3-2">书法、篆刻作品报名</el-menu-item>
-              <el-menu-item index="3-3">摄影作品报名</el-menu-item>
-              <el-menu-item index="3-4">设计作品报名</el-menu-item>
-              <el-menu-item index="3-5">微电影作品报名</el-menu-item>
+              <el-menu-item index="3-1" @click="drawingEnroll()">绘画作品报名</el-menu-item>
+              <el-menu-item index="3-2" @click="handwritingEnroll()">书法、篆刻作品报名</el-menu-item>
+              <el-menu-item index="3-3" @click="shootEnroll()">摄影作品报名</el-menu-item>
+              <el-menu-item index="3-4" @click="deviseEnroll()">设计作品报名</el-menu-item>
+              <el-menu-item index="3-5" @click="movieEnroll()">微电影作品报名</el-menu-item>
             </el-submenu>
 
             <el-submenu index="4">
@@ -84,22 +84,22 @@
               <span slot="title">艺术表演类统计</span>
             </el-menu-item>
 
-            <el-menu-item index="8">
+            <el-menu-item index="8" @click="studentStatistics()">
               <i class="el-icon-menu"></i>
               <span slot="title">学生艺术作品统计</span>
             </el-menu-item>
 
-            <el-menu-item index="9">
+            <el-menu-item index="9" @click="collegeStatistics()">
               <i class="el-icon-menu"></i>
               <span slot="title">高校校长作品统计</span>
             </el-menu-item>
 
-            <el-menu-item index="10">
+            <el-menu-item index="10" @click="artWorkStatistics()">
               <i class="el-icon-menu"></i>
               <span slot="title">艺术实践工作坊统计</span>
             </el-menu-item>
 
-            <el-menu-item index="11">
+            <el-menu-item index="11" @click=" excellentStatistics()">
               <i class="el-icon-menu"></i>
               <span slot="title">优秀案例统计</span>
             </el-menu-item>
@@ -122,8 +122,51 @@ export default {
     vocalistEnroll() {
       this.$router.push("/vocalistenroll");
     },
+
+    instrumentalEnroll(){
+       this.$router.push("/instrumentalEnroll");
+    },
+    danceEnroll(){
+       this.$router.push("/danceEnroll");
+    },
+    playEnroll(){
+       this.$router.push("/playEnroll");
+    },
+    recitationEnroll(){
+       this.$router.push("/recitationEnroll");
+    },
+
+
+    drawingEnroll(){
+       this.$router.push("/drawingEnroll");
+    },
+    handwritingEnroll(){
+      
+       this.$router.push("/handwritingEnroll");
+    },
+    shootEnroll(){
+       this.$router.push("/shootEnroll");
+    },
+    deviseEnroll(){
+       this.$router.push("/deviseEnroll");
+    },
+    movieEnroll(){
+       this.$router.push("/movieEnroll");
+    },
     artPlaystatistics() {
       this.$router.push('/artPlaystatistics')
+    },
+    studentStatistics() {
+      this.$router.push('/studentStatistics')
+    },
+     collegeStatistics() {
+      this.$router.push('/collegeStatistics')
+    },
+    excellentStatistics() {
+      this.$router.push('/excellentStatistics')
+    },
+    artWorkStatistics() {
+      this.$router.push('/artWorkStatistics')
     }
   },
 };
