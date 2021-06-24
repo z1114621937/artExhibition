@@ -79,7 +79,7 @@
               <p>—— 报名信息 ——</p>
             </div>
 
-            <el-menu-item index="7"  @click="artPlaystatistics()">
+            <el-menu-item index="7" @click="artPlaystatistics()">
               <i class="el-icon-menu"></i>
               <span slot="title">艺术表演类统计</span>
             </el-menu-item>
@@ -108,7 +108,14 @@
       </el-aside>
       <el-main>
         <!-- 顶部窗口区 -->
-        <div class="windows" style="height:40px;"></div>
+        <div class="windows" :style="{'height':(data != ''?'40px':'0')}">
+          <el-row v-for="item in data" :key="item.name">
+            <el-button type="primary" class="el-btn" size="mini" @click="windowRouter(item.routerName)">
+              {{item.name}}
+              <i class="el-icon-close" @click="konk(item.name)"></i>
+            </el-button>
+          </el-row>
+        </div>
         <router-view class="main-height"></router-view>
         <div class="copyright">@copyright 第六届全国大学生艺术展演</div>
       </el-main>
@@ -118,55 +125,96 @@
 
 <script>
 export default {
+  data() {
+    return {
+      data: [],
+    };
+  },
   methods: {
     vocalistEnroll() {
+      const routerName = {
+        routerName: "/vocalistenroll",
+        name: "声乐作品报名",
+      };
+      this.addName(routerName);
       this.$router.push("/vocalistenroll");
     },
-
-    instrumentalEnroll(){
-       this.$router.push("/instrumentalEnroll");
+    instrumentalEnroll() {
+      const routerName = {
+        routerName: "/instrumentalEnroll",
+        name: "器乐作品报名",
+      };
+      this.addName(routerName);
+      this.$router.push("/instrumentalEnroll");
     },
-    danceEnroll(){
-       this.$router.push("/danceEnroll");
+    danceEnroll() {
+      const routerName = {
+        routerName: "/danceEnroll",
+        name: "舞蹈作品报名",
+      };
+      this.addName(routerName);
+      this.$router.push("/danceEnroll");
     },
-    playEnroll(){
-       this.$router.push("/playEnroll");
+    playEnroll() {
+      this.$router.push("/playEnroll");
     },
-    recitationEnroll(){
-       this.$router.push("/recitationEnroll");
+    recitationEnroll() {
+      this.$router.push("/recitationEnroll");
     },
-
-
-    drawingEnroll(){
-       this.$router.push("/drawingEnroll");
+    drawingEnroll() {
+      this.$router.push("/drawingEnroll");
     },
-    handwritingEnroll(){
-      
-       this.$router.push("/handwritingEnroll");
+    handwritingEnroll() {
+      this.$router.push("/handwritingEnroll");
     },
-    shootEnroll(){
-       this.$router.push("/shootEnroll");
+    shootEnroll() {
+      this.$router.push("/shootEnroll");
     },
-    deviseEnroll(){
-       this.$router.push("/deviseEnroll");
+    deviseEnroll() {
+      this.$router.push("/deviseEnroll");
     },
-    movieEnroll(){
-       this.$router.push("/movieEnroll");
+    movieEnroll() {
+      this.$router.push("/movieEnroll");
     },
     artPlaystatistics() {
-      this.$router.push('/artPlaystatistics')
+      this.$router.push("/artPlaystatistics");
     },
     studentStatistics() {
-      this.$router.push('/studentStatistics')
+      this.$router.push("/studentStatistics");
     },
-     collegeStatistics() {
-      this.$router.push('/collegeStatistics')
+    collegeStatistics() {
+      this.$router.push("/collegeStatistics");
     },
     excellentStatistics() {
-      this.$router.push('/excellentStatistics')
+      this.$router.push("/excellentStatistics");
     },
     artWorkStatistics() {
-      this.$router.push('/artWorkStatistics')
+      this.$router.push("/artWorkStatistics");
+    },
+    //添加
+    addName(obj) {
+      if (this.data.length === 0) {
+        this.data.push(obj);
+      } else {
+        for (let i = 0; i < this.data.length; i++) {
+          if (this.data[i].name == obj.name) {
+            return;
+          }
+        }
+        this.data.push(obj);
+      }
+    },
+    //删除
+    konk(obj) {
+      for (let i = 0; i < this.data.length; i++) {
+        if (this.data[i].name == obj) {
+          this.data.splice(i,1)
+          return;
+        }
+      }
+    },
+    windowRouter(id) {
+      this.$router.push(id)
     }
   },
 };
@@ -176,7 +224,7 @@ export default {
 .home-container {
   height: 100%;
 }
-ul li{
+ul li {
   list-style: none;
 }
 .el-header {
@@ -196,7 +244,7 @@ ul li{
   height: 50px;
 }
 .el-header p {
-  color:white;
+  color: white;
   font-size: 20px;
 }
 .el-header div {
@@ -242,6 +290,8 @@ ul li{
   background-color: #fff;
   box-shadow: 0 0px 5px #898989;
   min-width: 1000px;
+  display: flex;
+  line-height: 35px;
 }
 
 .copyright {
@@ -253,9 +303,16 @@ ul li{
   text-align: center;
   font-size: 15px;
   color: #c9c4c4;
+  /* position: absolute; */
+  /* bottom: 0; */
 }
 
 header {
   height: 70px !important;
+}
+
+.el-btn {
+  margin-left: 10px;
+  padding: 7px 8px;
 }
 </style>
