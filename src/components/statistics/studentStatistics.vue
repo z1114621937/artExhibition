@@ -116,7 +116,7 @@ export default {
 <style scoped>
 .home {
   width: 97%;
-  height: 90%;
+  height: 92%;
   margin: 10px auto;
   background-color: #fff;
   border-radius: 6px;
@@ -138,7 +138,7 @@ export default {
   margin-left: 10px;
 }
 .homecontent {
-  height: 90%;
+  height: 95%;
   min-width: 1000px;
 }
 
