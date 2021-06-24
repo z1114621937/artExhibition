@@ -122,6 +122,7 @@ export default {
     vocalistEnroll() {
       this.$router.push("/vocalistenroll");
     },
+
     instrumentalEnroll(){
        this.$router.push("/instrumentalEnroll");
     },
@@ -155,7 +156,6 @@ export default {
     artPlaystatistics() {
       this.$router.push('/artPlaystatistics')
     }
-
   },
 };
 </script>

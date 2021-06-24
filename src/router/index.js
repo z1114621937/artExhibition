@@ -29,9 +29,7 @@ const routes = [
           { path: '/artPlaystatistics', component: solve => require(['../components/statistics/artPlayStatistics.vue'], solve)},
         ]
     },
-
 ]
-
 const router = new VueRouter({
     mode: 'hash',
     base: process.env.BASE_URL,
