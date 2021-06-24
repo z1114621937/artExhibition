@@ -37,10 +37,10 @@
                 <span>艺术表演类</span>
               </template>
               <el-menu-item index="2-1" @click="vocalistEnroll()">声乐作品报名</el-menu-item>
-              <el-menu-item index="2-2" >器乐作品报名</el-menu-item>
-              <el-menu-item index="2-3">舞蹈作品报名</el-menu-item>
-              <el-menu-item index="2-4">戏剧作品报名</el-menu-item>
-              <el-menu-item index="2-5">朗诵作品报名</el-menu-item>
+              <el-menu-item index="2-2" @click="instrumentalEnroll()">器乐作品报名</el-menu-item>
+              <el-menu-item index="2-3" @click="danceEnroll()">舞蹈作品报名</el-menu-item>
+              <el-menu-item index="2-4" @click="playEnroll()">戏剧作品报名</el-menu-item>
+              <el-menu-item index="2-5" @click="recitationEnroll()">朗诵作品报名</el-menu-item>
             </el-submenu>
 
             <el-submenu index="3">
@@ -48,11 +48,11 @@
                 <i class="el-icon-location"></i>
                 <span>学生艺术作品类</span>
               </template>
-              <el-menu-item index="3-1">绘画作品报名</el-menu-item>
-              <el-menu-item index="3-2">书法、篆刻作品报名</el-menu-item>
-              <el-menu-item index="3-3">摄影作品报名</el-menu-item>
-              <el-menu-item index="3-4">设计作品报名</el-menu-item>
-              <el-menu-item index="3-5">微电影作品报名</el-menu-item>
+              <el-menu-item index="3-1" @click="drawingEnroll()">绘画作品报名</el-menu-item>
+              <el-menu-item index="3-2" @click="handwritingEnroll()">书法、篆刻作品报名</el-menu-item>
+              <el-menu-item index="3-3" @click="shootEnroll()">摄影作品报名</el-menu-item>
+              <el-menu-item index="3-4" @click="deviseEnroll()">设计作品报名</el-menu-item>
+              <el-menu-item index="3-5" @click="movieEnroll()">微电影作品报名</el-menu-item>
             </el-submenu>
 
             <el-submenu index="4">
@@ -79,27 +79,27 @@
               <p>—— 报名信息 ——</p>
             </div>
 
-            <el-menu-item index="7">
+            <el-menu-item index="7" @click="artPlaystatistics()">
               <i class="el-icon-menu"></i>
               <span slot="title">艺术表演类统计</span>
             </el-menu-item>
 
-            <el-menu-item index="8">
+            <el-menu-item index="8" @click="studentStatistics()">
               <i class="el-icon-menu"></i>
               <span slot="title">学生艺术作品统计</span>
             </el-menu-item>
 
-            <el-menu-item index="9">
+            <el-menu-item index="9" @click="collegeStatistics()">
               <i class="el-icon-menu"></i>
               <span slot="title">高校校长作品统计</span>
             </el-menu-item>
 
-            <el-menu-item index="10">
+            <el-menu-item index="10" @click="artWorkStatistics()">
               <i class="el-icon-menu"></i>
               <span slot="title">艺术实践工作坊统计</span>
             </el-menu-item>
 
-            <el-menu-item index="11">
+            <el-menu-item index="11" @click=" excellentStatistics()">
               <i class="el-icon-menu"></i>
               <span slot="title">优秀案例统计</span>
             </el-menu-item>
@@ -108,7 +108,14 @@
       </el-aside>
       <el-main>
         <!-- 顶部窗口区 -->
-        <div class="windows" style="height:40px;"></div>
+        <div class="windows" :style="{'height':(data != ''?'40px':'0')}">
+          <el-row v-for="item in data" :key="item.name">
+            <el-button type="primary" class="el-btn" size="mini" @click="windowRouter(item.routerName)">
+              {{item.name}}
+              <i class="el-icon-close" @click="konk(item.name)"></i>
+            </el-button>
+          </el-row>
+        </div>
         <router-view class="main-height"></router-view>
         <div class="copyright">@copyright 第六届全国大学生艺术展演</div>
       </el-main>
@@ -118,8 +125,18 @@
 
 <script>
 export default {
+  data() {
+    return {
+      data: [],
+    };
+  },
   methods: {
     vocalistEnroll() {
+      const routerName = {
+        routerName: "/vocalistenroll",
+        name: "声乐作品报名",
+      };
+      this.addName(routerName);
       this.$router.push("/vocalistenroll");
     },
     collegeDrawingEnroll(){
@@ -132,10 +149,87 @@ export default {
       this.$router.push("/collegeHandweitingEnrol");
     },
     artWorkEnroll(){
- this.$router.push("/artWorkEnrol");
+  this.$router.push("/artWorkEnrol");
     },
     excellentEnroll(){
- this.$router.push("/excellentEnrol");
+      this.$router.push("/excellentEnrol");
+    },
+    instrumentalEnroll() {
+      const routerName = {
+        routerName: "/instrumentalEnroll",
+        name: "器乐作品报名",
+      };
+      this.addName(routerName);
+      this.$router.push("/instrumentalEnroll");
+    },
+    danceEnroll() {
+      const routerName = {
+        routerName: "/danceEnroll",
+        name: "舞蹈作品报名",
+      };
+      this.addName(routerName);
+      this.$router.push("/danceEnroll");
+    },
+    playEnroll() {
+      this.$router.push("/playEnroll");
+    },
+    recitationEnroll() {
+      this.$router.push("/recitationEnroll");
+    },
+    drawingEnroll() {
+      this.$router.push("/drawingEnroll");
+    },
+    handwritingEnroll() {
+      this.$router.push("/handwritingEnroll");
+    },
+    shootEnroll() {
+      this.$router.push("/shootEnroll");
+    },
+    deviseEnroll() {
+      this.$router.push("/deviseEnroll");
+    },
+    movieEnroll() {
+      this.$router.push("/movieEnroll");
+    },
+    artPlaystatistics() {
+      this.$router.push("/artPlaystatistics");
+    },
+    studentStatistics() {
+      this.$router.push("/studentStatistics");
+    },
+    collegeStatistics() {
+      this.$router.push("/collegeStatistics");
+    },
+    excellentStatistics() {
+      this.$router.push("/excellentStatistics");
+    },
+    artWorkStatistics() {
+      this.$router.push("/artWorkStatistics");
+    },
+    //添加
+    addName(obj) {
+      if (this.data.length === 0) {
+        this.data.push(obj);
+      } else {
+        for (let i = 0; i < this.data.length; i++) {
+          if (this.data[i].name == obj.name) {
+            return;
+          }
+        }
+        this.data.push(obj);
+      }
+    },
+    //删除
+    konk(obj) {
+      for (let i = 0; i < this.data.length; i++) {
+        if (this.data[i].name == obj) {
+          this.data.splice(i,1)
+          return;
+        }
+      }
+    },
+    windowRouter(id) {
+      this.$router.push(id)
     }
   },
 };
@@ -145,7 +239,7 @@ export default {
 .home-container {
   height: 100%;
 }
-ul li{
+ul li {
   list-style: none;
 }
 .el-header {
@@ -165,7 +259,7 @@ ul li{
   height: 50px;
 }
 .el-header p {
-  color:white;
+  color: white;
   font-size: 20px;
 }
 .el-header div {
@@ -211,6 +305,8 @@ ul li{
   background-color: #fff;
   box-shadow: 0 0px 5px #898989;
   min-width: 1000px;
+  display: flex;
+  line-height: 35px;
 }
 
 .copyright {
@@ -222,9 +318,16 @@ ul li{
   text-align: center;
   font-size: 15px;
   color: #c9c4c4;
+  /* position: absolute; */
+  /* bottom: 0; */
 }
 
 header {
   height: 70px !important;
+}
+
+.el-btn {
+  margin-left: 10px;
+  padding: 7px 8px;
 }
 </style>

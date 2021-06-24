@@ -5,14 +5,14 @@
       <el-breadcrumb separator-class="el-icon-arrow-right" style="font-size:16px">
         <el-breadcrumb-item>首页</el-breadcrumb-item>
         <el-breadcrumb-item>艺术表演类</el-breadcrumb-item>
-        <el-breadcrumb-item>声乐作品报名</el-breadcrumb-item>
+        <el-breadcrumb-item>戏剧作品报名</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
     <!-- 内容主体区 -->
     <div class="homeContent">
       <div class="header">
-        <span>声乐作品报名</span>
-        <p>合唱：合唱队人数不超过40人，钢琴伴奏1人，指挥1人（应为本校教师），每支合唱队可演唱两首作品（其中至少一首中国作品），演出时间不超过8分钟。小合唱或表演唱：人数不超过15人（含伴奏），不设指挥，不得伴舞，演出时间不超过5分钟。</p>
+        <span>戏剧作品报名</span>
+        <p>含戏曲、校园短剧、小品、歌舞剧、音乐剧等。人数不超过12人（含伴奏），演出时间不超过12分钟。</p>
       </div>
       <!-- 表单区域 -->
       <div class="fromBady">
@@ -25,18 +25,21 @@
           :rules="rules"
           :model="form"
         >
-          <div class="leftForm">
+         <div class="leftForm">
             <el-form-item label="表演形式" label-width="100px">
               <el-select v-model="form.layout" class="layoutWidth">
-                <el-option label="合唱" value="合唱"></el-option>
-                <el-option label="小合唱" value="小合唱"></el-option>
-                <el-option label="表演唱" value="表演唱"></el-option>
+                <el-option label="戏曲" value="戏曲"></el-option>
+                <el-option label="校园短剧" value="校园短剧"></el-option>
+                <el-option label="小品" value="小品"></el-option>
+                <el-option label="歌舞剧" value="歌舞剧"></el-option>
+                <el-option label="音乐剧" value="音乐剧"></el-option>
+                <el-option label="其他" value="其他"></el-option>
               </el-select>
             </el-form-item>
           </div>
 
           <div class="rightForm">
-            <el-form-item label="作品时长" prop="min">
+            <el-form-item label="作品时长" >
               <el-input type="number" v-model="form.time.min" class="timeWidth"></el-input>
             </el-form-item>
 
@@ -62,29 +65,19 @@
           :rules="rules"
           :model="form"
         >
-          <div class="leftForm2">
-            <el-form-item label="曲目1" label-width="100px" prop="song1">
-              <el-input v-model="form.song1" class="layoutWidth" placeholder="例：《曲目1》"></el-input>
+          <div class="leftForm">
+            <el-form-item label="作品名称" label-width="100px" prop="art">
+              <el-input v-model="form.art" class="layoutWidth" placeholder="例：《戏剧作品》"></el-input>
             </el-form-item>
           </div>
 
-          <div class="centerForm2">
-            <el-form-item label="是否为本届展演原创" label-width="150px">
-              <el-radio-group v-model="form.original1">
-                <el-radio label="true">是</el-radio>
-                <el-radio label="false">否</el-radio>
-              </el-radio-group>
+           <div class="rightForm">
+            <el-form-item label="表演人数" label-width="100px" prop="perform">
+              <el-input v-model="form.perform" class="layoutWidth" placeholder="表演人数为参展人数总和"></el-input>
             </el-form-item>
           </div>
 
-          <div class="rightForm2">
-            <el-form-item label="是否为中国作品" label-width="150px">
-              <el-radio-group v-model="form.works1">
-                <el-radio label="true">是</el-radio>
-                <el-radio label="false">否</el-radio>
-              </el-radio-group>
-            </el-form-item>
-          </div>
+
         </el-form>
         <!-- 第三排 -->
         <el-form
@@ -93,74 +86,60 @@
           :inline="true"
           label-width="80px"
           :model="form"
+          :rules="rules"
         >
-          <div class="leftForm2">
-            <el-form-item label="曲目2(可不填)" label-width="100px">
-              <el-input v-model="form.song2" class="layoutWidth" placeholder="例：《曲目2》"></el-input>
+          <div class="leftForm">
+            <el-form-item label="联系人姓名" label-width="100px" prop="username">
+              <el-input v-model="form.username" class="layoutWidth" placeholder="请填写填报人或者负责人姓名即可"></el-input>
             </el-form-item>
           </div>
 
-          <div class="centerForm2">
-            <el-form-item label="是否为本届展演原创" label-width="150px">
-              <el-radio-group v-model="form.original2">
-                <el-radio label="true">是</el-radio>
-                <el-radio label="false">否</el-radio>
-              </el-radio-group>
+          <div class="rightForm">
+            <el-form-item label="联系人电话" label-width="100px" prop="phone">
+              <el-input v-model="form.phone" class="layoutWidth" placeholder="请输入手机号码"></el-input>
             </el-form-item>
           </div>
 
-          <div class="rightForm2">
-            <el-form-item label="是否为中国作品" label-width="150px">
-              <el-radio-group v-model="form.works2">
-                <el-radio label="true">是</el-radio>
-                <el-radio label="false">否</el-radio>
-              </el-radio-group>
-            </el-form-item>
-          </div>
         </el-form>
         <!-- 第四排 -->
+       
         <el-form rel="form" class="demo-form-inline" :inline="true" :rules="rules" :model="form">
-          <div class="leftForm3">
-            <el-form-item label="联系人姓名" label-width="100px" prop="username">
-              <el-input v-model="form.username" class="userWidth" placeholder="请填写填报人或者负责人姓名即可"></el-input>
-            </el-form-item>
-          </div>
-
-          <div class="rightForm3">
-            <el-form-item label="联系人电话" label-width="100px" prop="phone">
-              <el-input v-model="form.phone" class="userWidth" placeholder="请输入手机号码"></el-input>
-            </el-form-item>
-          </div>
-        </el-form>
-        <!-- 第五排 -->
-        <el-form rel="form" class="demo-form-inline" :inline="true" :model="form" :rules="rules">
-          <div class="leftForm3">
+          <div class="leftForm">
             <el-form-item label="联系地址" label-width="100px" prop="address">
               <el-input v-model="form.address" class="userWidth" placeholder="请输入详细地址"></el-input>
             </el-form-item>
           </div>
 
-          <div class="rightForm3">
+          <div class="rightForm">
             <el-form-item label="组别" label-width="100px">
-              <el-select v-model="form.group" class="userWidth">
+              <el-select v-model="form.group" class="layoutWidth">
                 <el-option label="甲组（非专业组）" value="甲组（非专业组）"></el-option>
                 <el-option label="乙组（专业组）" value="乙组（专业组）"></el-option>
               </el-select>
             </el-form-item>
           </div>
         </el-form>
-        <!-- 第六排 -->
-        <el-form rel="form" class="demo-form-inline" :inline="true" :model="form" :rule="rules">
-          <div class="leftForm3">
-            <el-form-item label="表演人数" label-width="100px" prop="numberPeople">
-              <el-input v-model="form.numberPeople" class="userWidth" placeholder="表演人数为参展人数总和"></el-input>
+        <!-- 第五排 -->
+       <el-form
+          rel="form"
+          class="demo-form-inline"
+          :inline="true"
+          label-width="80px"
+          :model="form"
+        >
+        <div class="leftForm">
+            <el-form-item label="是否为本届展演原创" label-width="150px">
+              <el-radio-group v-model="form.works">
+                <el-radio label="true">是</el-radio>
+                <el-radio label="false">否</el-radio>
+              </el-radio-group>
             </el-form-item>
-
-          </div>
+          </div> 
         </el-form>
-        <!-- 第七排 -->
+        <!-- 第六排 -->
+        
         <el-form rel="form" class="demo-form-inline" :inline="true">
-          <div class="leftForm3">
+          <div class="leftForm">
             <el-form-item label="作品描述" label-width="100px">
               <el-input
                 type="textarea"
@@ -173,8 +152,9 @@
             </el-form-item>
           </div>
         </el-form>
-        <!-- 第八排 -->
-        <el-form rel="form" :inline="true" style="width:100%">
+        <!-- 第七排 -->
+        
+      <el-form rel="form" :inline="true" style="width:100%">
           <div class="leftForm5">
             <el-form-item label="视频上传" label-width="100px">
               <el-upload
@@ -323,9 +303,8 @@
             </el-table-column>
           </el-table>
         </div>
-        <!-- 第三张表 -->
-        <span class="tabbleName">指挥</span>
-        <span class="warning">（应为本校教师）</span>
+       <!-- 第三张表 -->
+        <span class="tabbleName">学生伴奏</span>
         <ul class="tabbleNav">
           <li>
             <a>批量导入</a>
@@ -334,14 +313,14 @@
             <a>下载模板</a>
           </li>
           <li>
-            <a @click="addTable3">添加一行</a>
+            <a @click="addTable2">添加一行</a>
           </li>
           <li>
-            <a @click="clean3">清空</a>
+            <a @click="clean2">清空</a>
           </li>
         </ul>
         <div class="addTable">
-          <el-table :data="tableData3" border style="width: 100%">
+          <el-table :data="tableData2" border style="width: 100%">
             <el-table-column label="序号" width="100" show-overflow-tooltip>
               <template slot-scope="scope">
                 <el-input v-model="scope.row.id" />
@@ -384,18 +363,66 @@
             </el-table-column>
           </el-table>
         </div>
-      </div>
-      <!-- 钢琴伴奏 -->
-      <el-form rel="form" class="demo-form-inline" :inline="true">
-        <div class="leftForm">
-          <el-form-item label="钢琴伴奏" label-width="100px">
-            <el-select v-model="form.accompany" class="layoutWidth">
-              <el-option label="老师" value="老师"></el-option>
-              <el-option label="学生" value="学生"></el-option>
-            </el-select>
-          </el-form-item>
+    <!-- 第四张表 -->
+     <span class="tabbleName">老师伴奏</span>
+        <ul class="tabbleNav">
+          <li>
+            <a>批量导入</a>
+          </li>
+          <li>
+            <a>下载模板</a>
+          </li>
+          <li>
+            <a @click="addTable2">添加一行</a>
+          </li>
+          <li>
+            <a @click="clean2">清空</a>
+          </li>
+        </ul>
+        <div class="addTable">
+          <el-table :data="tableData2" border style="width: 100%">
+            <el-table-column label="序号" width="100" show-overflow-tooltip>
+              <template slot-scope="scope">
+                <el-input v-model="scope.row.id" />
+              </template>
+            </el-table-column>
+            <el-table-column label="姓名" width="150" show-overflow-tooltip>
+              <template slot-scope="scope">
+                <el-input v-model="scope.row.name"></el-input>
+              </template>
+            </el-table-column>
+            <el-table-column label="身份证号" width="200" show-overflow-tooltip>
+              <template slot-scope="scope">
+                <el-input v-model="scope.row.ID"></el-input>
+              </template>
+            </el-table-column>
+            <el-table-column label="名族" width="120" show-overflow-tooltip>
+              <template slot-scope="scope">
+                <el-input v-model="scope.row.nation"></el-input>
+              </template>
+            </el-table-column>
+            <el-table-column label="年龄" width="120" show-overflow-tooltip>
+              <template slot-scope="scope">
+                <el-input v-model="scope.row.age"></el-input>
+              </template>
+            </el-table-column>
+            <el-table-column label="性别" width="120" show-overflow-tooltip>
+              <template slot-scope="scope">
+                <el-input v-model="scope.row.sex"></el-input>
+              </template>
+            </el-table-column>
+            <el-table-column label="所在地区" width="320" show-overflow-tooltip>
+              <template slot-scope="scope">
+                <el-input v-model="scope.row.erea"></el-input>
+              </template>
+            </el-table-column>
+            <el-table-column label="所在院系/部门" min-width="320" show-overflow-tooltip>
+              <template slot-scope="scope">
+                <el-input v-model="scope.row.branch"></el-input>
+              </template>
+            </el-table-column>
+          </el-table>
         </div>
-      </el-form>
       <!-- 底部区 -->
       <div class="footer">
         <span class="warning">请仔细阅读报名须知，确认无误后勾选报名须知，即可进行报名。</span>
@@ -411,6 +438,7 @@
           <el-button>暂存</el-button>
         </div>
       </div>
+    </div>
     </div>
     <el-drawer :visible.sync="drawer" :with-header="false">
       <span class="ask">
@@ -460,6 +488,7 @@
         </p>
       </span>
     </el-drawer>
+  
   </div>
 </template>
 
@@ -478,22 +507,19 @@ export default {
     };
     return {
       form: {
-        layout: "合唱",
+        layout: "戏曲",
         time: {
           min: "",
           second: "0",
         },
-        song1: "",
-        original1: "true",
-        works1: "true",
-        song2: "",
-        original2: "",
-        works2: "",
+        art: "",
+        perform: "",
         username: "",
         phone: "",
-        address: "",
         group: "甲组（非专业组）",
-        numberPeople: "",
+        works:'true',
+        address: "",
+        // numberPeople: "",
         desc: "",
         accompany: "老师",
         video:"",
@@ -585,7 +611,7 @@ export default {
       ],
       rules: {
         min: [{ required: true, message: "请输入分钟数", trigger: "blur" }],
-        song1: [{ required: true, message: "请输入曲目", trigger: "blur" }],
+        art: [{ required: true, message: "请输入作品名称", trigger: "blur" }],
         username: [{ required: true, message: "请输入姓名", trigger: "blur" }],
         phone: [
           { required: true, message: "请输入手机号", trigger: "blur" },
@@ -594,9 +620,10 @@ export default {
         address: [
           { required: true, message: "请输入详细地址", trigger: "blur" },
         ],
-        numberPeople: [
+        perform: [
           { required: true, message: "请输入表演人数", trigger: "blur" },
-        ],
+        ]
+        
       },
       checked: "",
       drawer: false,
