@@ -36,6 +36,11 @@ const routes = [
             { path: '/collegeStatistics', component: solve => require(['../components/statistics/collegeStatistics.vue'], solve) },
             { path: '/artWorkStatistics', component: solve => require(['../components/statistics/artWorkStatistics.vue'], solve) },
             { path: '/excellentStatistics', component: solve => require(['../components/statistics/excellentStatistics.vue'], solve) },
+            { path: '/collegeDrawingEnroll', component: solve => require(['../components/collegeenroll/collegeDrawingEnroll.vue'], solve) },
+            { path: '/collegeHandweitingEnrol', component: solve => require(['../components/collegeenroll/collegeHandweitingEnrol.vue'], solve) },
+            { path: '/collegeShootEnrol', component: solve => require(['../components/collegeenroll/collegeShootEnrol.vue'], solve) },
+            { path: '/artWorkEnrol', component: solve => require(['../components/artworkenroll/artWorkEnrol.vue'], solve) },
+            { path: '/excellentEnrol', component: solve => require(['../components/excellentenroll/excellentEnrol.vue'], solve) },
         ]
     },
 ]
