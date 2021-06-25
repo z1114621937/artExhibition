@@ -150,7 +150,7 @@
           </div>
         </el-form>
         <!-- 第六排 -->
-        <el-form rel="form" class="demo-form-inline" :inline="true" :model="form" :rule="rules">
+        <el-form rel="form" class="demo-form-inline" :inline="true" :model="form" :rules="rules">
           <div class="leftForm3">
             <el-form-item label="表演人数" label-width="100px" prop="numberPeople">
               <el-input v-model="form.numberPeople" class="userWidth" placeholder="表演人数为参展人数总和"></el-input>
