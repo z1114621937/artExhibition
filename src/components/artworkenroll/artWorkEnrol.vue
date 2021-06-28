@@ -11,6 +11,7 @@
     <div class="homeContent">
       <div class="header">
         <span>艺术实践工作坊报名</span>
+        <div>111</div>
       </div>
       <!---表单-->
       <div class="fromBady">
@@ -312,7 +313,7 @@
                     <el-input v-model="scope.row.phone"></el-input>
                   </template>
                 </el-table-column>
-                
+
               </el-table>
             </div>
           </el-form-item>
